@@ -1,0 +1,40 @@
+{
+  "groups": [
+    {
+      "name": "cache",
+      "type": "com.backend.config.RedisConfigurationProperties",
+      "sourceType": "com.backend.config.RedisConfigurationProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "cache.cache-expiration",
+      "type": "java.util.Map<java.lang.String,java.lang.Long>",
+      "sourceType": "com.backend.config.RedisConfigurationProperties"
+    },
+    {
+      "name": "cache.host",
+      "type": "java.lang.String",
+      "sourceType": "com.backend.config.RedisConfigurationProperties",
+      "defaultValue": "localhost"
+    },
+    {
+      "name": "cache.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.backend.config.RedisConfigurationProperties",
+      "defaultValue": 6379
+    },
+    {
+      "name": "cache.timeout-of-seconds",
+      "type": "java.lang.Long",
+      "sourceType": "com.backend.config.RedisConfigurationProperties",
+      "defaultValue": 60
+    },
+    {
+      "name": "security.authentication.jwt.token-validity-in-seconds-for-remember-me",
+      "type": "java.lang.String",
+      "description": "Description for security.authentication.jwt.token-validity-in-seconds-for-remember-me."
+    }
+  ],
+  "hints": []
+}
