@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "security.authentication.jwt.token-validity-in-seconds-for-remember-me",
+      "type": "java.lang.String",
+      "description": "Description for security.authentication.jwt.token-validity-in-seconds-for-remember-me."
+  }
+] }
