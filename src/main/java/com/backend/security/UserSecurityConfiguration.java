@@ -49,9 +49,8 @@ public class UserSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable().headers().frameOptions().disable() //
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //
                 .and().requestMatchers().antMatchers("/**") //
-                .and().authorizeRequests() //
-                .anyRequest().authenticated() //
-                .and().apply(securityConfigurerAdapter());
+                .and().authorizeRequests(authorization -> authorization.anyRequest().authenticated()) //
+                .apply(securityConfigurerAdapter());
     }
 
     private JWTConfigurer securityConfigurerAdapter() {
