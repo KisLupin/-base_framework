@@ -1,4 +1,4 @@
-package com.backend.config;
+package com.backend.config.app;
 
 import com.backend.security.UserSecurityConfiguration;
 import org.springframework.web.WebApplicationInitializer;

@@ -1,4 +1,4 @@
-package com.backend.config;
+package com.backend.config.redis;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,6 +1,5 @@
-package com.backend.config;
+package com.backend.config.app;
 
-import org.mapstruct.Mapper;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
