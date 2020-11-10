@@ -34,4 +34,3 @@ cors:
   allow-credentials: true
   max-age: 1800
 
-log

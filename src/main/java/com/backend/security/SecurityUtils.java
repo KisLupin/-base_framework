@@ -1,6 +1,6 @@
 package com.backend.security;
 
-import com.backend.domain.User;
+import com.backend.domain.UserResponse;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -93,10 +93,10 @@ public class SecurityUtils {
                 .map(authentication -> ((UserPrincipal) authentication.getPrincipal()).getTokenKey());
     }
 
-    public static Optional<User> getCurrentUser() {
+    public static Optional<UserResponse> getCurrentUser() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         return Optional.ofNullable(securityContext.getAuthentication())
                 .filter(authentication -> authentication.getPrincipal() instanceof UserPrincipal)
-                .map(authentication -> ((UserPrincipal) authentication.getPrincipal()).getUser());
+                .map(authentication -> ((UserPrincipal) authentication.getPrincipal()).getUserResponse());
     }
 }

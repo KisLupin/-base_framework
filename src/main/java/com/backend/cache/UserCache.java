@@ -11,11 +11,8 @@ import java.util.Optional;
 @Setter
 public class UserCache implements ICacheData{
     private String token;
-
     private Integer userId;
-
     private String username;
-
     private Duration ttl;
 
     @Override

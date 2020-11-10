@@ -1,6 +1,6 @@
 package com.backend.security;
 
-import com.backend.domain.User;
+import com.backend.domain.UserResponse;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,13 +9,12 @@ import java.util.Collection;
 import java.util.List;
 
 public class UserPrincipal implements UserDetails {
-    private static final long serialVersionUID = 6011552923276664711L;
-    private User user;
+    private UserResponse userResponse;
     private String tokenKey;
     private final List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
-    public UserPrincipal(User user, String tokenKey) {
-        this.user = user;
+    public UserPrincipal(UserResponse userResponse, String tokenKey) {
+        this.userResponse = userResponse;
         this.tokenKey = tokenKey;
     }
 
@@ -26,12 +25,12 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return userResponse.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return userResponse.getUsername();
     }
 
     @Override
@@ -54,8 +53,8 @@ public class UserPrincipal implements UserDetails {
         return true;
     }
 
-    public User getUser() {
-        return user;
+    public UserResponse getUserResponse() {
+        return userResponse;
     }
 
     public String getTokenKey() {

@@ -20,7 +20,6 @@ public class CacheRepository<T extends ICacheData> implements DataCacheRepositor
     ObjectMapper objectMapper;
 
     // implement methods
-
     @Override
     public Boolean add(T object) {
         try {

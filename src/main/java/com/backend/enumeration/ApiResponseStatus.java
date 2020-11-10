@@ -5,7 +5,7 @@ public enum ApiResponseStatus {
 
     private Integer value;
 
-    private ApiResponseStatus(Integer value) {
+    ApiResponseStatus(Integer value) {
         this.value = value;
     }
 

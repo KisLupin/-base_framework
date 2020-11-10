@@ -1,6 +1,6 @@
 package com.backend.controller;
 
-import com.backend.domain.User;
+import com.backend.domain.UserResponse;
 import com.backend.enumeration.ApiResponseStatus;
 import com.backend.enumeration.ErrorCode;
 import com.backend.exception.RestApiException;
@@ -22,14 +22,14 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class Controller {
     private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
-    private final BaseService<User, UserRequest, UserFilters> userService;
+    private final BaseService<UserResponse, UserRequest, UserFilters> userService;
 
     @PostMapping("/add")
     public ResponseEntity<ApiResponse> add(@RequestBody UserRequest req) {
         ApiResponse response;
         try {
-            User user = userService.create(req);
-            response = new ApiResponse(ApiResponseStatus.SUCCESS.getValue(), user);
+            UserResponse userResponse = userService.create(req);
+            response = new ApiResponse(ApiResponseStatus.SUCCESS.getValue(), userResponse);
         } catch (RestApiException ex) {
             response = new ApiResponse(ex);
             LOGGER.error("Error Occur, ", ex);

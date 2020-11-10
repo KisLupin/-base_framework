@@ -2,32 +2,32 @@
   "groups": [
     {
       "name": "cache",
-      "type": "com.backend.config.RedisConfigurationProperties",
-      "sourceType": "com.backend.config.RedisConfigurationProperties"
+      "type": "com.backend.config.redis.RedisConfigurationProperties",
+      "sourceType": "com.backend.config.redis.RedisConfigurationProperties"
     }
   ],
   "properties": [
     {
       "name": "cache.cache-expiration",
       "type": "java.util.Map<java.lang.String,java.lang.Long>",
-      "sourceType": "com.backend.config.RedisConfigurationProperties"
+      "sourceType": "com.backend.config.redis.RedisConfigurationProperties"
     },
     {
       "name": "cache.host",
       "type": "java.lang.String",
-      "sourceType": "com.backend.config.RedisConfigurationProperties",
+      "sourceType": "com.backend.config.redis.RedisConfigurationProperties",
       "defaultValue": "localhost"
     },
     {
       "name": "cache.port",
       "type": "java.lang.Integer",
-      "sourceType": "com.backend.config.RedisConfigurationProperties",
+      "sourceType": "com.backend.config.redis.RedisConfigurationProperties",
       "defaultValue": 6379
     },
     {
       "name": "cache.timeout-of-seconds",
       "type": "java.lang.Long",
-      "sourceType": "com.backend.config.RedisConfigurationProperties",
+      "sourceType": "com.backend.config.redis.RedisConfigurationProperties",
       "defaultValue": 60
     },
     {

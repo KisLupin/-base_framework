@@ -3,7 +3,9 @@ package com.backend.enumeration;
 public enum ErrorCode {
     API_FAILED_UNKNOWN("error.api.failed.unknown", ""),
     USER_NOT_EXIST("error.api.user_not_exist", ""),
+    USERNAME_NOT_EXIST("error.api.username_not_exist", ""),
     TIME_FORMAT_INVALID("error.api.time_format_invalid", ""),
+    PASSWORD_INVALID("error.api.password_invalid", ""),
     TOKEN_NOT_EXIST("error.api.token_not_exist", "");
 
     private String errorCode;

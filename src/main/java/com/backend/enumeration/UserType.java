@@ -1,5 +1,5 @@
 package com.backend.enumeration;
 
-public enum  UserType {
+public enum UserType {
     USER
 }

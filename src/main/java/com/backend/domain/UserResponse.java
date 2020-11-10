@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
+public class UserResponse {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class User {
     private String username;
     private String password;
 
-    public User(UserRequest u) {
+    public UserResponse(UserRequest u) {
         BeanUtils.copyProperties(u, this);
     }
 

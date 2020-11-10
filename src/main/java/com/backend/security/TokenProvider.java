@@ -3,7 +3,7 @@ package com.backend.security;
 import com.backend.cache.CacheRepository;
 import com.backend.cache.UserCache;
 import com.backend.common.Constant;
-import com.backend.domain.User;
+import com.backend.domain.UserResponse;
 import com.backend.enumeration.ErrorCode;
 import com.backend.enumeration.UserType;
 import com.backend.exception.RestApiException;
@@ -31,18 +31,12 @@ public class TokenProvider {
     private final UserRepository userRepository;
     private final CacheRepository<UserCache> cacheRepository;
 
-    public String createToken(User user, boolean rememberMe) {
+    public String createToken(UserResponse userResponse, boolean rememberMe) {
         long plusTime = rememberMe ? jwtProperties.getTokenValidityInSecondsForRememberMe()
                 : jwtProperties.getTokenValidityInSeconds();
         Date validity = Date.from(Instant.now().plusSeconds(plusTime));
-        String subject = String.valueOf(user.getUsername());
+        String subject = String.valueOf(userResponse.getUsername());
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-//        if (Objects.nonNull(user.getEmployee())) {
-//            grantedAuthorities.add(new SimpleGrantedAuthority(UserType.EMPLOYEE.name()));
-//        }
-//        if (Objects.nonNull(user.getMember())) {
-//            grantedAuthorities.add(new SimpleGrantedAuthority(UserType.MEMBER.name()));
-//        }
         grantedAuthorities.add(new SimpleGrantedAuthority(UserType.USER.name()));
         return Jwts.builder().setAudience(Constant.TokenAudience.API).setSubject(subject)
                 .claim(AUTHORITIES_KEY, grantedAuthorities)
@@ -78,15 +72,10 @@ public class TokenProvider {
             String audience = claims.getAudience();
             String username = claims.getSubject();
             if (Constant.TokenAudience.API.equals(audience)) {
-                User user = userRepository.findByUsername(username)
+                UserResponse userResponse = userRepository.findByUsername(username)
                         .orElseThrow(() -> new RestApiException(ErrorCode.USER_NOT_EXIST));
-                userDetails = new UserPrincipal(user, token);
+                userDetails = new UserPrincipal(userResponse, token);
             }
-//            if (Constant.TokenAudience.WEB.equals(audience)) {
-//                UserWeb userWeb = userWebRepository.findByUsername(username)
-//                        .orElseThrow(() -> new RestApiException(ErrorCode.USER_NOT_EXIST));
-//                userDetails = new UserPrincipal(userWeb, token);
-//            }
             if (Objects.isNull(userDetails)) {
                 return;
             }
